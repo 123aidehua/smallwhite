@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://myBatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.mapper.EmployeeMapper">
+
+    <!--(1)根据id查询员工信息 -->
+    <select id="select01" parameterType="Integer"
+            resultType="com.itheima.pojo.Employee">
+        select * from employee where id = #{id}
+    </select>
+
+    <!-- (2)新增员工信息 -->
+    <insert id="insert02" parameterType="com.itheima.pojo.Employee">
+        insert into employee(id,name,age,position)values (#{id},#{name},#{age},#{position})
+    </insert>
+
+    <!-- (3)根据id修改员工信息 -->
+    <update id="update03" parameterType="com.itheima.pojo.Employee">
+        update employee set name= #{name},age = #{age},position= #{position} where id = #{id}
+    </update>
+
+    <!-- (4)根据id删除员工信息 -->
+    <delete id="delete04" parameterType="Integer">
+        delete from employee where id=#{id}
+    </delete>
+</mapper>

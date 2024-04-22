@@ -1,0 +1,9 @@
+<mapper namespace="com.itheima.mapper.UsersMapper">
+    <resultMap type="Users" id="UserWithOrdersResult">
+        <!-- 只展示了部分标签内容，一对多关联映射 -->
+        <collection property="ordersList" ofType="Orders">
+            <id property="id" column="orders_id"/>
+            <result property="number" column="number"/>
+        </collection>
+    </resultMap>
+</mapper>

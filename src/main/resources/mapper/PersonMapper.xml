@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=":com.itheima.mapper.PersonMapper">
+<select id="findPersonById" parameterType="Integer" 	resultMap="IdCardWithPersonResult">
+    SELECT * from tb_person where id=#{id}	</select>
+<resultMap type="Person" id="IdCardWithPersonResult">
+<id property="id" column="id" />
+<result property="name" column="name" />
+<result property="age" column="age" />
+<result property="sex" column="sex" />
+<association property="card" column="card_id" javaType="IdCard"
+      select="com.itheima.mapper.IdCardMapper.findCodeById" />
+</resultMap>
+</mapper>

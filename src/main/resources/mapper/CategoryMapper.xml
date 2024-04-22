@@ -1,0 +1,7 @@
+<select id="findCategotyWithProdect"
+        parameterType="Integer"
+        resultMap="CategoryWithProductResult">
+    SELECT c.*,p.id as category_id,p.goodsname,p.price
+    from category c,product p
+    WHERE c.id=p.category_id       and c.id=#{id}
+</select>
